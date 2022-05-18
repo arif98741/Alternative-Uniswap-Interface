@@ -59,7 +59,7 @@ function LiquidityRemover(props) {
   // Stores a record of whether their respective dialog window is open
   const [dialog1Open, setDialog1Open] = React.useState(false);
   const [dialog2Open, setDialog2Open] = React.useState(false);
-  const [wrongNetworkOpen, setwrongNetworkOpen] = React.useState(false);
+  const [wrongNetworkOpen] = React.useState(false);
 
 
   // Stores data about their respective coin

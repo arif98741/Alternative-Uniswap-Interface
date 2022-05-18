@@ -1,6 +1,5 @@
 import { Contract, ethers } from "ethers";
 import * as chains from "./constants/chains";
-import COINS from "./constants/coins";
 
 const ROUTER = require("./build/UniswapV2Router02.json");
 const ERC20 = require("./build/ERC20.json");

@@ -1,7 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Contract, ethers } from "ethers";
-import { createTheme, ThemeProvider } from "@material-ui/core";
-import { SnackbarProvider } from "notistack";
+import { createTheme } from "@material-ui/core";
 import ConnectWalletPage from "./Components/connectWalletPage";
 import {
   getAccount,
@@ -13,7 +11,7 @@ import {
 import COINS from "./constants/coins";
 import * as chains from "./constants/chains";
 
-const theme = createTheme({
+createTheme({
   palette: {
     primary: {
       main: "#ff0000",
@@ -26,7 +24,6 @@ const theme = createTheme({
   },
 });
 
-const autoReconnectDelay = 5000;
 
 const Web3Provider = (props) => {
   const [isConnected, setConnected] = useState(true);
@@ -43,7 +40,7 @@ const Web3Provider = (props) => {
   async function setupConnection() {
     try {
       console.log('lets go!');
-      network.provider = new ethers.providers.Web3Provider(window.ethereum);
+     // network.provider = new ethers.providers.Web3Provider(window.ethereum);
       network.signer = await network.provider.getSigner();
       await getAccount().then(async (result) => {
         network.account = result;
@@ -91,14 +88,10 @@ const Web3Provider = (props) => {
       try {
         // Check the account has not changed
         const account = await getAccount();
-        if (account != network.account) {
+        if (account !== network.account) {
           await setupConnection();
         }
-        // const chainID = await getNetwork(network.provider);
-        // if (chainID !== network.chainID){
-        //   setConnected(false);
-        //   await setupConnection();
-        // }
+
       } catch (e) {
         setConnected(false);
         await setupConnection();

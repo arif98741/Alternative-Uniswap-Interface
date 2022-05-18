@@ -1,14 +1,9 @@
 import React from "react";
 import {
   Dialog,
-  Grid,
-  IconButton,
   makeStyles,
-  Typography,
-  withStyles,
 } from "@material-ui/core";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
-import CloseIcon from "@material-ui/icons/Close";
 
 const styles = (theme) => ({
   dialogContainer: {
